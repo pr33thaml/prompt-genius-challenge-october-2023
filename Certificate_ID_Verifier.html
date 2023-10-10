@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Genius: Certificate Verifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prompt Genius: Certificate Verifier</h1>
+        <label for="certificateID">Certificate ID:</label>
+        <input type="text" id="certificateID" placeholder="Enter Certificate ID">
+        <label for="email">Email to Send:</label>
+        <input type="text" id="email" placeholder="Enter Email Address">
+        <button onclick="sendEmail()">Send Email</button>
+    </div>
+
+    <script>
+        function sendEmail() {
+            var certificateID = document.getElementById("certificateID").value;
+            var email = document.getElementById("email").value;
+
+            google.script.run.sendEmails(certificateID, email);
+        }
+    </script>
+</body>
+</html>
